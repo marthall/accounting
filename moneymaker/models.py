@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class OutcomeCategory(models.Model):
+class ExpenseCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
@@ -10,13 +10,13 @@ class OutcomeCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
-    category = models.ForeignKey(OutcomeCategory, null=True, blank=True)
+    category = models.ForeignKey(ExpenseCategory, null=True, blank=True)
 
     def __unicode__(self):
         return self.name
 
 
-class Outcome(models.Model):
+class Expense(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True)
     description = models.CharField(max_length=200, null=True, blank=True)
     date = models.DateField(null=True, blank=True)

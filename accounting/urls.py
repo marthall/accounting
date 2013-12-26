@@ -3,9 +3,9 @@ from rest_framework import routers
 from moneymaker import views
 
 router = routers.DefaultRouter()
-router.register(r'outcome', views.OutcomeViewSet)
+router.register(r'expense', views.ExpenseViewSet)
 router.register(r'product', views.ProductViewSet)
-router.register(r'outcomecategory', views.OutcomeCategoryViewSet)
+router.register(r'expense-category', views.ExpenseCategoryViewSet)
 
 from django.contrib import admin
 admin.autodiscover()

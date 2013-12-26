@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from models import Outcome, Product, OutcomeCategory
+from models import Expense, Product, ExpenseCategory
 
 
-class OutcomeSerializer(serializers.HyperlinkedModelSerializer):
+class ExpenseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Outcome
+        model = Expense
         fields = ('product', 'description', 'date', 'price')
 
 
@@ -14,7 +14,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', 'category')
 
 
-class OutcomeCategorySerializer(serializers.HyperlinkedModelSerializer):
+class ExpenseCategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = OutcomeCategory
+        model = ExpenseCategory
         fields = ('name',)

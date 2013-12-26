@@ -1,14 +1,16 @@
-from models import Outcome, Product, OutcomeCategory
+from models import Expense, Product, ExpenseCategory
 from rest_framework import viewsets
-from moneymaker.serializers import OutcomeSerializer, ProductSerializer, OutcomeCategorySerializer
+from moneymaker.serializers import ExpenseSerializer
+from moneymaker.serializers import ProductSerializer
+from moneymaker.serializers import ExpenseCategorySerializer
 
 
-class OutcomeViewSet(viewsets.ModelViewSet):
+class ExpenseViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows outcome to be viewed or edited.
     """
-    queryset = Outcome.objects.all()
-    serializer_class = OutcomeSerializer
+    queryset = Expense.objects.all()
+    serializer_class = ExpenseSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -19,9 +21,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
 
 
-class OutcomeCategoryViewSet(viewsets.ModelViewSet):
+class ExpenseCategoryViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows outcome to be viewed or edited.
     """
-    queryset = OutcomeCategory.objects.all()
-    serializer_class = OutcomeCategorySerializer
+    queryset = ExpenseCategory.objects.all()
+    serializer_class = ExpenseCategorySerializer
