@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Category(models.Model):
+class OutcomeCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
@@ -10,7 +10,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
-    category = models.ForeignKey(Category, null=True, blank=True)
+    category = models.ForeignKey(OutcomeCategory, null=True, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -26,7 +26,15 @@ class Outcome(models.Model):
         return self.product.name
 
 
+class IncomeCategory(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+
+
 class Income(models.Model):
+    category = models.ForeignKey(IncomeCategory, null=True, blank=True)
+    date = models.DateField(max_length=200, null=True, blank=True)
+    amount = models.FloatField(null=True, blank=True)
+
     @staticmethod
     def get_total_income(self):
         return sum(self.income_set.all())
